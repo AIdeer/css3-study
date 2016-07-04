@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <link rel="stylesheet" type="text/css" href="css/style.css" />
+        <script type="text/javascript" src="js/jquery-1.12.3.min.js"></script>
+        <script type="text/javascript" src="js/jquery.validate.min.js"></script>
+        <script type="text/javascript" src="js/messages_zh.min.js"></script>
+        <script type="text/javascript"> 
+          $(function(){ 
+                $("input[type='radio']").click(function(){ 
+                $("input[type='radio']").removeAttr("checked"); 
+                $(this).attr("checked","checked"); 
+                $(this).parent().removeClass("r_off").addClass("r_on").parent().siblings(".u").children().removeClass("r_on").addClass("r_off"); 
+            }); 
+          }); 
+
+
+          $(function(){
+              $(".button").click(function(){
+                  if($("#username").val()==""){
+                    alert("姓名不能为空！");
+                    return false;
+                  }else if(!/^1[3|4|5|7][0-9]{9}$/.test($('#tel').val())){
+                    alert("请输入正确的手机号！");
+                    return false;
+                  }else if($("#unit").val()==""){
+                    alert("单位不能为空！")
+                    return false;
+                  }else if($("#post").val()==""){
+                    alert("职位不能为空！")
+                    return false;
+                  }
+                  $('#commentForm').submit(function(){
+                    alert('提交成功！');
+                    window.open("apply1.html");
+                  })
+              });
+
+          })
+            
+          </script> 
+    </head>
+    <body>
+        <div class="page" >
+            <div class="tpp_img"><img src="images/top_img.png" /></div>
+            <div class="con ">
+                <img src="images/apply_title.png" alt="" class="title" />
+                <form class="cmxform" id="commentForm" m action="">
+                <div class="con_center ">
+                   <ul class="apply_con">
+                       <li class="radius_t">
+                            <label for="username">姓名：</label>
+                            <input id="username" name="username"  type="text" />
+                       </li>
+                       <li>
+                           <label for="">手机：</label>
+                           <input type="text" id="tel" name="tel" />
+                       </li>
+                       <li>
+                           <label for="">单位：</label>
+                           <input type="text" id="unit" name="unit" />
+                       </li>
+                       <li class="radius_b">
+                           <label for="">职位：</label>
+                           <input type="text" id="post" name="post" />
+                       </li>
+                   </ul>
+
+                   <ul class="apply_con1">
+                       <li class="radius_t a_title">参会费用</li>
+                       <li class="u">
+                           <label for="radio-01" class="label_radio r_on">
+                             <input type="radio" value="1" checked="checked" id="radio-01" name="sample-radio" />
+                             联盟成员单位2位免费参加
+                           </label>
+                       </li>
+                       <li class="radius_b u">
+                           <label for="radio-02" class="label_radio r_off">
+                             <input type="radio" value="1" id="radio-02" name="sample-radio"  />
+                             参会费用：7800/人（含食宿）
+                           </label>
+                       </li>
+                   </ul>
+                   <div class="button_box">
+                    <input type="submit" value="马上报名" class="button" >
+                  </div>
+                </div>
+                  
+</form>
+            </div>
+        </div>
+       
+    </body>
+</html>
